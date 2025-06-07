@@ -1,0 +1,24 @@
+{
+    "app": {
+      "port": "${APP_PORT}",
+      "name": "${APP_NAME}",
+      "secret": "${APP_SECRET}",
+      "jwtSecret": "${JWT_SECRET}"
+    },
+    "db": {
+      "host": "${DB_HOST}",
+      "port": "${DB_PORT}",
+      "username": "${DB_USER}",
+      "password": "${DB_PASSWORD}",
+      "database": "${DB_NAME}"
+    },
+    "sequelize": {
+      "logging": false,
+      "sync": {
+        "force": false
+      }
+    },
+    "io": {
+      "url": "${IO_URL}"
+    }
+  }

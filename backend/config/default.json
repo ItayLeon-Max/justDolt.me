@@ -1,0 +1,24 @@
+{
+    "app": {
+        "port": "3000",
+        "name": "justDolt.me",
+        "secret": "MySecret",
+        "jwtSecret": "MyJwtSecret"
+    },
+    "db": {
+        "host": "localhost",
+        "port": 3306,
+        "username": "root",
+        "password": "",
+        "database": "meetingApp"
+    },
+    "sequelize": {
+        "logging": true,
+        "sync": {
+            "force": false
+        }
+    },
+    "io": {
+        "url": "ws://127.0.0.1:3003"
+    }
+}

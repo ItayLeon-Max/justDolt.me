@@ -1,0 +1,44 @@
+  version: '3.8'
+
+  services:
+    database:
+      container_name: ma-compose-database
+      environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD=1
+        - MYSQL_DATABASE=meetingApp
+        - MYSQL_TCP_PORT=3306
+      ports:
+        - "3306:3306"
+      build: ./database
+      healthcheck:
+        test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1" ]
+        interval: 1m30s
+        timeout: 30s
+        retries: 5
+        start_period: 60s
+
+    backend:
+      container_name: ma-compose-backend
+      ports:
+        - 3000:3000
+      environment:
+        - NODE_ENV=compose
+      build: ./backend
+      depends_on:
+        database:
+          condition: service_healthy
+    
+    io:
+      container_name: ma-io
+      ports:
+        - 3003:3003
+      build: ./io
+    
+    # localstack: 
+    #   container_name: sn-localstack
+    #   ports:
+    #     - 127.0.0.1:4566:4566
+    #     - 127.0.0.1:4510-4559:4510-4559
+    #   image: localstack/localstack
+
+
