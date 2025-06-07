@@ -10,7 +10,7 @@
         "port": 3306,
         "username": "root",
         "password": "",
-        "database": "meetingApp"
+        "database": "justDolt.me"
     },
     "sequelize": {
         "logging": true,
